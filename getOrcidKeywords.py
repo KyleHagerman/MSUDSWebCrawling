@@ -48,8 +48,10 @@ def parse_source(uri):
         # tagValue = link.string.strip('\r\n\t')
         # print('skill data: \n' + tagValue)
         # skillList.append({"skill": tagValue, "length": len(tagValue)})
-      for child in soup.find_all(link.descendants):
-        print(child)
+
+      for child in link.descendants['class']:
+        if child is 'public-record-ng2':
+          print(link.descendants.name)
 
     #create json file if it doesn't exist, open and write parsed values into it
     if not os.path.exists(pageTitle+'-skills.json'):
