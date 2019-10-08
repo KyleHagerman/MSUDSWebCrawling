@@ -22,6 +22,7 @@ OUTPUT: This program will generate csv and JSON files for each researcher.
 import sys
 import scholarly #https://github.com/OrganicIrradiation/scholarly
 import orcid #https://github.com/ORCID/python-orcid
+import qwikidata #https://qwikidata.readthedocs.io/en/stable/index.html
 
 #this method reads the input, if there is none then find Jason
 def readInput(filepath):
