@@ -88,13 +88,6 @@ def crawlGoogleScholar(researcher, institution, header_list):
   #pull the HTML link from the search result
   URI_tail = search_results[0].a['href']
 
-  # for link in soup.find_all(class_='gs_ai gs_scl gs_ai_chpr'):
-  #   URI_tail = link.a['href']
-  #   break
-      # tagValue = link.string.strip('\r\n\t')
-      # print('skill data: \n' + tagValue)
-      # skillList.append({"skill": tagValue, "length": len(tagValue)})
-
   #add the domain name for Google Scholar
   URI_head = "https://scholar.google.com/"
 
@@ -128,7 +121,7 @@ def crawlGoogleScholar(researcher, institution, header_list):
   for link in soup.find_all(class_='gsc_prf_inta'):
       tagValue = link.string.strip('\r\n\t')
       print('skill data: \n' + tagValue)
-      skillList.append({"skill": tagValue, "length": len(tagValue)})
+      skillList.append({"skill": tagValue, "skill_length": len(tagValue)})
 
   return skillList
 
@@ -202,9 +195,19 @@ def main():
   print("In the main method...")
 
   #exit condition for while loop, output type must be selected
-  output_type_invalid = True
+  menu_complete_invalid = True
+  institution_input_invalid = True
+  researcher_input_type_invalid = true
+  output_type_invalid = true
 
-  #will run until file output type is valid
+  while(instituion_input_invalid):
+    print("Please enter the institution you would like to search for: ")
+    institution = input()
+    
+    print("You entered: " + institution)
+    print("Is this correct? Enter yes or no.") #----------------------------Stopped here
+    
+  #will run until file output type is valid  
   while(output_type_invalid):
 
     #prompt user for file output type
@@ -256,18 +259,17 @@ def main():
 
   #for each researcher in the list, find their skills and reconcile with WikiData
   for researcher in range(len(researchers)):
-    researcher_skills = []
+    
     print("Calling Google Scholar method...")
     retrieved_skills = crawlGoogleScholar(researchers[researcher], institution, header_list)
-    for skill in range(len(retrieved_skills)):
-      researcher_skills.append(retrieved_skills[skill])
 
     print("Skill List: ")
     print(researcher_skills)
 
     for skill in range(len(researcher_skills)):
-      URI = callWikiData(researcher_skills[skill]['skill'], header_list)
-      researcher_skills.insert(skill + 1, URI)
+      machine_label = callWikiData(researcher_skills[skill]['skill'], header_list)
+      researcher_skills[skill]["machine_label"] = machine_label
+      researcher_skills[skill]["label_length"] = len(machine_label)
 
     print("Skills with URI's: ")
     print(researcher_skills)
