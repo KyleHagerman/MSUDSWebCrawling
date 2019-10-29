@@ -1,0 +1,1 @@
+INSERT INTO `datasets` (`recordInfo_recordIdentifier`, `dataset_category1`, `dataset_category1_URI`, `dataset_category2`, `dataset_category2_URI`, `dataset_category3`, `dataset_category3_URI`) VALUES (`data structures`, `https://www.wikidata.org/wiki/Q175263`, `metadata harvesting`, `https://www.wikidata.org/wiki/-1`, `xml parsing`, `https://www.wikidata.org/wiki/-1`)

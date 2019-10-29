@@ -1,0 +1,32 @@
+[
+    {
+        "skill": "machine learning",
+        "skill_length": 16,
+        "machine_label": "https://www.wikidata.org/wiki/Q2539",
+        "label_length": 35
+    },
+    {
+        "skill": "semantic web",
+        "skill_length": 12,
+        "machine_label": "https://www.wikidata.org/wiki/Q54837",
+        "label_length": 36
+    },
+    {
+        "skill": "web development",
+        "skill_length": 15,
+        "machine_label": "https://www.wikidata.org/wiki/Q386275",
+        "label_length": 37
+    },
+    {
+        "skill": "linked data",
+        "skill_length": 11,
+        "machine_label": "https://www.wikidata.org/wiki/Q515701",
+        "label_length": 37
+    },
+    {
+        "skill": "APIs and web services",
+        "skill_length": 21,
+        "machine_label": "https://www.wikidata.org/wiki/-1",
+        "label_length": 32
+    }
+]
